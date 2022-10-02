@@ -76,3 +76,8 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Debuggger
+group :development, :test do
+  gem 'pry-byebug'
+end
