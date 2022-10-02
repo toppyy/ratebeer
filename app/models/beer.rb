@@ -6,5 +6,9 @@ class Beer < ApplicationRecord
         sum = ratings.map {|r| r.score}.reduce(:+)
         return sum/ratings.count.to_f
     end
+
+    def to_s
+        return "#{name} (#{brewery.name})"
+    end
     
 end
