@@ -1,5 +1,6 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: %i[ show edit update destroy ]
+  before_action :authenticate, only: [:destroy]
 
   # GET /breweries or /breweries.json
   def index
@@ -52,8 +53,8 @@ class BreweriesController < ApplicationController
     @brewery.destroy
 
     respond_to do |format|
-      format.html { redirect_to breweries_url, notice: "Brewery was successfully destroyed." }
-      format.json { head :no_content }
+     format.html { redirect_to breweries_url, notice: "Brewery was successfully destroyed." }
+     format.json { head :no_content }
     end
   end
 
@@ -66,5 +67,15 @@ class BreweriesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def brewery_params
       params.require(:brewery).permit(:name, :year)
+    end
+
+    def authenticate
+      admin_accounts = { "pekka" => "beer", "arto" => "foobar", "matti" => "ittam", "vilma" => "kangas" }
+        
+      authenticate_or_request_with_http_basic do |username, password|
+          raise "Unauthorized!" unless admin_accounts[username] == password
+          return true
+      end
+
     end
 end
