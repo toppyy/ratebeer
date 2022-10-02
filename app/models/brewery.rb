@@ -1,6 +1,7 @@
 class Brewery < ApplicationRecord
-    has_many :beers
-  
+    has_many :beers, dependent: :destroy
+    has_many :ratings, through: :beers
+
     def print_report
       puts name
       puts "established at year #{year}"
@@ -11,4 +12,10 @@ class Brewery < ApplicationRecord
         self.year = 2022
         puts "changed year to #{year}"
     end
+
+    def average_rating
+      sum = ratings.map {|r| r.score}.reduce(:+)
+      return sum/ratings.count.to_f
+    end
+
   end
