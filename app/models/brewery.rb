@@ -14,8 +14,4 @@ class Brewery < ApplicationRecord
     puts "changed year to #{year}"
   end
 
-  def average_rating
-    sum = ratings.map(&:score).reduce(:+)
-    sum / ratings.count.to_f
-  end
 end
