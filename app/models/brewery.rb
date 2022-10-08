@@ -5,8 +5,12 @@ class Brewery < ApplicationRecord
 
   validates :name, presence: true
   validates :year, numericality: { greater_than_or_equal_to: 1040,
-                                   less_than_or_equal_to: 2022,
                                    only_integer: true }
+  validate :year, :year_cannot_be_greater_current_year
+
+  def year_cannot_be_greater_current_year
+    errors.add(:year, "can't be greater than current year #{Time.now.year}") unless year <= Time.now.year
+  end
 
   def print_report
     puts name
