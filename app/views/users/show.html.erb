@@ -5,6 +5,20 @@
   <h2>Username: </h2> 
   <p><%= @user.username %></p>
 
+
+  <% if @user.beer_clubs.empty? %>
+      No beer club memberships.
+  <% else %>
+    <p>Member in these beer clubs:</p>
+    <ul>
+      <% @user.beer_clubs.each do |beer_club| %>
+      <li>
+        <%= beer_club %>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <% if @user.ratings.empty? %>
       No ratings yet.
   <% else %>
@@ -19,6 +33,7 @@
     </li>
     <% end %>
   </ul>
+
   <%= link_to "Edit this user", edit_user_path(@user) %> |
   <%= link_to "Back to users", users_path %>
 

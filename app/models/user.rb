@@ -5,7 +5,8 @@ class User < ApplicationRecord
 
   has_many :ratings
   has_many :beers, through: :ratings
-  has_many :beer_clus, through: :memberships
+  has_many :memberships
+  has_many :beer_clubs, through: :memberships
 
   def to_s
     username.to_s
