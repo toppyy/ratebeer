@@ -1,6 +1,6 @@
 class MembershipsController < ApplicationController
   before_action :set_membership, only: %i[show edit update destroy]
-  before_action :check_if_already_member, only: %i[update create]
+  before_action :check_if_already_member, only: %i[create]
 
   # GET /memberships or /memberships.json
   def index
