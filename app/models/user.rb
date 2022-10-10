@@ -5,10 +5,11 @@ class User < ApplicationRecord
 
   validates :password, length: { minimum: 4 }, format: { with: /[A-Z]+.*\d|\d.*[A-Z]+/, message: "must contain at least a single capital letter (A-Z) and a digit" }
 
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
   has_many :beers, through: :ratings
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
   has_many :beer_clubs, through: :memberships
+
 
   has_secure_password
 
