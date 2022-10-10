@@ -51,6 +51,8 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+    # Destroying a user means also loggin out
+    session.destroy
     @user.destroy
 
     respond_to do |format|
