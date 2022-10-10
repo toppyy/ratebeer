@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :check_user, only: %i[edit update destroy]
 
   # GET /users or /users.json
   def index
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @users_own_page = check_user
   end
 
   # POST /users or /users.json
@@ -67,5 +69,14 @@ class UsersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation)
+  end
+
+  # Check user in parameters equals to user of the session
+  # if not, render a message of authorized access
+  def check_user
+    user_is_not_logged_in = @user != current_user
+    return true unless user_is_not_logged_in
+
+    render status: :unauthorized, json: { error: "You are not authorized to access this resource." }
   end
 end
