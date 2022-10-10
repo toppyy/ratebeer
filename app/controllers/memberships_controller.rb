@@ -1,5 +1,6 @@
 class MembershipsController < ApplicationController
   before_action :set_membership, only: %i[show edit update destroy]
+  before_action :check_if_already_member, only: %i[update create]
 
   # GET /memberships or /memberships.json
   def index
@@ -24,13 +25,13 @@ class MembershipsController < ApplicationController
   def create
     @membership = Membership.new params.require(:membership).permit(:beer_club_id)
     @membership.user = current_user
+    @beer_clubs = joinable_beer_clubs
 
     respond_to do |format|
       if @membership.save
         format.html { redirect_to membership_url(@membership), notice: "Membership was successfully created." }
         format.json { render :show, status: :created, location: @membership }
       else
-        @beer_clubs = joinable_beer_clubs
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @membership.errors, status: :unprocessable_entity }
       end
@@ -62,6 +63,15 @@ class MembershipsController < ApplicationController
 
   private
 
+  # Check if user is already in the beer club
+  def check_if_already_member
+    @membership = Membership.new params.require(:membership).permit(:beer_club_id)
+
+    return unless current_user.beer_clubs.map(&:id).include?(@membership.beer_club_id)
+
+    redirect_to new_membership_url
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_membership
     @membership = Membership.find(params[:id])
@@ -74,7 +84,7 @@ class MembershipsController < ApplicationController
 
   # Only list beer clubs the user is not a member of
   def joinable_beer_clubs
-    joined_beer_clubs = Membership.where(user_id: current_user.id).map(&:beer_club_id)
+    joined_beer_clubs = current_user.beer_clubs.map(&:id)
     BeerClub.where.not(id: joined_beer_clubs)
   end
 end

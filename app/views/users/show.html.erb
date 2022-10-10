@@ -27,10 +27,12 @@
 
   <ul>
     <% @user.ratings.each do |rating| %>
-    <li>
-      <%= rating %>
-      <%= button_to 'delete', rating_path(rating.id), method: :delete, form: { data: { 'turbo-confirm': 'Are you sure?' } }  %>
-    </li>
+      <li>
+        <%= "#{rating.to_s}" %>
+        <% if @user == current_user %>
+          <%= link_to "Delete", rating, data: {turbo_method: :delete} %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 
