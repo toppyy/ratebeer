@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @users_own_page = check_user
   end
 
   # POST /users or /users.json
