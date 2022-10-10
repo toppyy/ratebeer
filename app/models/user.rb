@@ -3,10 +3,14 @@ class User < ApplicationRecord
   validates :username, uniqueness: true,
                        length: { minimum: 3, maximum: 30 }
 
+  validates :password, length: { minimum: 4 }, format: { with: /[A-Z]+.*\d|\d.*[A-Z]+/, message: "must contain at least a single capital letter (A-Z) and a digit" }
+
   has_many :ratings
   has_many :beers, through: :ratings
   has_many :memberships
   has_many :beer_clubs, through: :memberships
+
+  has_secure_password
 
   def to_s
     username.to_s

@@ -81,3 +81,6 @@ end
 group :development, :test do
   gem 'pry-byebug'
 end
+
+# For hashing passwords
+gem 'bcrypt', '~> 3.1.7'
