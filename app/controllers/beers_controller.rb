@@ -1,9 +1,7 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: %i[show edit update destroy]
+  before_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create]
 
-  def styles
-    ["Weizen", "Lager", "Pale ale", "IPA", "Porter", "Lowalcohol"]
-  end
 
   # GET /beers or /beers.json
   def index
@@ -17,14 +15,10 @@ class BeersController < ApplicationController
   # GET /beers/new
   def new
     @beer = Beer.new
-    @breweries = Brewery.all
-    @styles = styles
   end
 
   # GET /beers/1/edit
   def edit
-    @styles = styles
-    @breweries = Brewery.all
   end
 
   # POST /beers or /beers.json
@@ -36,8 +30,6 @@ class BeersController < ApplicationController
         format.html { redirect_to beers_path, notice: "Beer was successfully created." }
         format.json { render :show, status: :created, location: @beer }
       else
-        @breweries = Brewery.all
-        @styles = styles
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @beer.errors, status: :unprocessable_entity }
       end
@@ -68,6 +60,11 @@ class BeersController < ApplicationController
   end
 
   private
+
+  def set_breweries_and_styles_for_template
+    @breweries = Brewery.all
+    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter", "Lowalcohol"]
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_beer

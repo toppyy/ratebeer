@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :beer_clubs, through: :memberships
 
-
   has_secure_password
 
   def to_s
