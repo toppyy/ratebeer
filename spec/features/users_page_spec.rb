@@ -33,4 +33,27 @@ describe "User" do
       click_button('Create User')
     }.to change{User.count}.by(1)
   end
+
+  #describe "favorite" do
+  #  before :each do
+
+  it "favorite beer style is displayed" do
+    sign_in(username: "Pekka", password: "Foobar1")
+    create_beer_with_rating({ user: user }, 1)
+    create_beer_with_rating_and_style({ user: user }, 2, "Weizen")
+  
+  end
+
+  it "favorite brewery is displayed" do
+    sign_in(username: "Pekka", password: "Foobar1")
+    create_beer_with_rating({ user: user }, 1)
+    brewery = FactoryBot.create :brewery, name: "bestbrew"
+    create_beer_with_rating_and_brewery({ user: user }, 3, brewery)
+    visit user_path(user)
+
+    expect(page).to have_content 'Favorite brewery: ' + brewery.name
+
+  end
+  #end
+
 end
