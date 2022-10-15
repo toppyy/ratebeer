@@ -57,7 +57,7 @@ describe "Rating" do
         b2 = create_beer_with_rating({ user: user }, 12)
         visit user_path(user)
 
-        delete_btn = page.find('a[href="/ratings/1"]')
+        delete_btn = page.find("a[href='/ratings/1']")
 
         expect{
             delete_btn.click
