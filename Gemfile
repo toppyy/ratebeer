@@ -84,3 +84,9 @@ end
 
 # For hashing passwords
 gem 'bcrypt', '~> 3.1.7'
+
+# Testing
+group :test do
+  # ...
+  gem 'rspec-rails', '~> 6.0.0.rc1'
+end
