@@ -3,8 +3,9 @@ require 'rails_helper'
 include Helpers
 
 describe "User" do
+  
   before :each do
-    FactoryBot.create :user
+    @user = FactoryBot.create :user
   end
 
   describe "who has signed up" do
@@ -34,26 +35,27 @@ describe "User" do
     }.to change{User.count}.by(1)
   end
 
-  #describe "favorite" do
-  #  before :each do
+  describe "favorite" do
+    before :each do
+      sign_in(username: "Pekka", password: "Foobar1")
+      # Create a not so nice beer to test that the favorite is picked correctly
+      create_beer_with_rating({ user: @user }, 1) 
+    end
 
-  it "favorite beer style is displayed" do
-    sign_in(username: "Pekka", password: "Foobar1")
-    create_beer_with_rating({ user: user }, 1)
-    create_beer_with_rating_and_style({ user: user }, 2, "Weizen")
-  
+    it "beer style is displayed correctly" do
+      best_style = "weizen"
+      create_beer_with_rating_and_style({ user: @user }, 3, best_style)
+      visit user_path(@user)
+      
+      expect(page).to have_content 'Favorite beer style is: ' + best_style
+    end
+
+    it "brewery is displayed correctly" do
+      brewery = FactoryBot.create :brewery, name: "bestbrew"
+      create_beer_with_rating_and_brewery({ user: @user }, 3, brewery.name)
+      visit user_path(@user)
+
+      expect(page).to have_content 'Favorite brewery is: ' + brewery.name
+    end
   end
-
-  it "favorite brewery is displayed" do
-    sign_in(username: "Pekka", password: "Foobar1")
-    create_beer_with_rating({ user: user }, 1)
-    brewery = FactoryBot.create :brewery, name: "bestbrew"
-    create_beer_with_rating_and_brewery({ user: user }, 3, brewery)
-    visit user_path(user)
-
-    expect(page).to have_content 'Favorite brewery: ' + brewery.name
-
-  end
-  #end
-
 end
