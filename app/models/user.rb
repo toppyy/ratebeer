@@ -15,4 +15,10 @@ class User < ApplicationRecord
   def to_s
     username.to_s
   end
+
+  def favorite_beer
+    return nil if ratings.empty?
+
+    ratings.max_by(&:score).beer
+  end
 end
