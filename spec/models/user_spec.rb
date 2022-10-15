@@ -1,4 +1,5 @@
 require 'rails_helper'
+include Helpers
 
 RSpec.describe User, type: :model do
   it "has the username set correctly" do
@@ -139,30 +140,4 @@ RSpec.describe User, type: :model do
 
   end
 
-end
-
-def create_beer_with_rating_and_style(object, score, style)
-  beer = FactoryBot.create(:beer, style: style)
-  FactoryBot.create(:rating, beer: beer, score: score, user: object[:user] )
-  beer
-end
-
-def create_beer_with_rating_and_brewery(object, score, brewery_name)
-  brewery = FactoryBot.create(:brewery, name: brewery_name)
-  beer = FactoryBot.create(:beer, brewery: brewery)
-  FactoryBot.create(:rating, beer: beer, score: score, user: object[:user] )
-  beer
-end
-
-
-def create_beer_with_rating(object, score)
-  beer = FactoryBot.create(:beer)
-  FactoryBot.create(:rating, beer: beer, score: score, user: object[:user] )
-  beer
-end
-
-def create_beers_with_many_ratings(object, *scores)
-  scores.each do |score|
-    create_beer_with_rating(object, score)
-  end
 end
