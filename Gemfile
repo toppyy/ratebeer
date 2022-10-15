@@ -90,3 +90,9 @@ group :test do
   # ...
   gem 'rspec-rails', '~> 6.0.0.rc1'
 end
+
+# Test fixtures
+group :test do
+  # ...
+  gem 'factory_bot_rails'
+end
