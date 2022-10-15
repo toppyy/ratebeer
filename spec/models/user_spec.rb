@@ -79,7 +79,81 @@ RSpec.describe User, type: :model do
       expect(user.favorite_beer).to eq(best)
     end
   end
+
+
+  describe "favorite style" do
+    let(:user) { FactoryBot.create(:user) }
+
+    it "has method for determining one" do
+      expect(user).to respond_to(:favorite_style)
+    end
+
+    it "without ratings does not have one" do
+      expect(user.favorite_style).to eq(nil)
+    end
+
+    it "is the only rated if only one rating" do
+      expected_style = "test_style"
+      create_beer_with_rating_and_style({ user: user}, 10, expected_style)
+      expect(user.favorite_style).to eq(expected_style)
+    end
+
+    it "is the one with highest rating if several rated" do
+      expected_style = "test_style"
+      create_beer_with_rating_and_style({ user: user}, 10, "fail")
+      create_beer_with_rating_and_style({ user: user}, 15, expected_style)
+      create_beer_with_rating_and_style({ user: user}, 9, "fail")
+
+      expect(user.favorite_style).to eq(expected_style)
+    end
+
+  end
+
+  describe "favorite brewery" do
+    let(:user) { FactoryBot.create(:user) }
+
+    it "has method for determining one" do
+      expect(user).to respond_to(:favorite_brewery)
+    end
+
+    it "without ratings does not have one" do
+      expect(user.favorite_brewery).to eq(nil)
+    end
+
+    it "is the only rated if only one rating" do
+      expected_brewery = "test_brew"
+      favorite = create_beer_with_rating_and_brewery({ user: user}, 10, expected_brewery)
+      expect(user.favorite_brewery).to eq(favorite.brewery)
+    end
+
+    it "is the one with highest rating if several rated" do
+      expected_brewery = "test_brew"
+      create_beer_with_rating_and_brewery({ user: user}, 15, "fail")
+      create_beer_with_rating_and_brewery({ user: user}, 15, "fail")
+      create_beer_with_rating_and_brewery({ user: user}, 15, expected_brewery)
+      favorite = create_beer_with_rating_and_brewery({ user: user}, 16, expected_brewery)
+      
+
+      expect(user.favorite_brewery).to eq(favorite.brewery)
+    end
+
+  end
+
 end
+
+def create_beer_with_rating_and_style(object, score, style)
+  beer = FactoryBot.create(:beer, style: style)
+  FactoryBot.create(:rating, beer: beer, score: score, user: object[:user] )
+  beer
+end
+
+def create_beer_with_rating_and_brewery(object, score, brewery_name)
+  brewery = FactoryBot.create(:brewery, name: brewery_name)
+  beer = FactoryBot.create(:beer, brewery: brewery)
+  FactoryBot.create(:rating, beer: beer, score: score, user: object[:user] )
+  beer
+end
+
 
 def create_beer_with_rating(object, score)
   beer = FactoryBot.create(:beer)

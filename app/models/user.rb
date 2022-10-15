@@ -21,4 +21,26 @@ class User < ApplicationRecord
 
     ratings.max_by(&:score).beer
   end
+
+  def favorite_style
+    return nil if ratings.empty?
+
+    favorite =  ratings.
+                joins(:beer).
+                group("beers.style").
+                select("avg(score) as avg,style").
+                order(avg: :desc).first
+    favorite.style
+  end
+
+  def favorite_brewery
+    return nil if ratings.empty?
+
+    fav_brewery = ratings.
+                  joins(:beer).
+                  group("beers.brewery_id").
+                  select("avg(score) as avg,brewery_id").
+                  order(avg: :desc).first
+    Brewery.find(fav_brewery.brewery_id)
+  end
 end
