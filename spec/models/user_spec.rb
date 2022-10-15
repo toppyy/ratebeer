@@ -35,4 +35,25 @@ RSpec.describe User, type: :model do
       expect(user.average_rating).to eq(15.0)
     end
   end
+
+  describe "with an improper password" do
+
+    it "is not saved because it's too short" do
+      user = User.create username: "Pekka", password: "Si2", password_confirmation: "Si2" 
+
+      expect(user).not_to be_valid
+      expect(User.count).to eq(0)
+    end
+
+    it "is not saved because it consists of only lowercase letters" do
+      user = User.create username: "Pekka", password: "salasana", password_confirmation: "salasana" 
+
+      expect(user).not_to be_valid
+      expect(User.count).to eq(0)
+    end
+  end
+
+
+
+
 end
