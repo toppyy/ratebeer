@@ -54,10 +54,14 @@ describe "Rating" do
 
     it "is removed from the database when deleted" do
         b1 = create_beer_with_rating({ user: user }, 11)
+        b2 = create_beer_with_rating({ user: user }, 12)
         visit user_path(user)
 
-        puts page.html
+        delete_btn = page.find('a[href="/ratings/1"]')
 
+        expect{
+            delete_btn.click
+        }.to change{Rating.count}.from(2).to(1)
     end
 
 end
