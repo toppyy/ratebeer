@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Breweries</h1>
+<%= link_to("New brewery", new_brewery_path) if current_user %>
+
 <p>Number of breweries: <%= @breweries.count %></p>
 <p>Listing breweries:</p>
 <div id="breweries">
@@ -18,5 +20,3 @@
     </div>
   <% end %>
 </div>
-<%= link_to 'List of beers', beers_path %>
-<%= link_to "New brewery", new_brewery_path %>
