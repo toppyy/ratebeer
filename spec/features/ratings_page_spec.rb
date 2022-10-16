@@ -57,8 +57,8 @@ describe "Rating" do
         b2 = create_beer_with_rating({ user: user }, 12)
         visit user_path(user)
 
-        delete_btn = page.find("a[href='/ratings/1']")
-
+        delete_btn = page.all('a').filter{|l| l.text=="Delete"}.first
+  
         expect{
             delete_btn.click
         }.to change{Rating.count}.from(2).to(1)
