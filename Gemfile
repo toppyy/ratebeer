@@ -88,3 +88,6 @@ end
 
 # For hashing passwords
 gem 'bcrypt', '~> 3.1.7'
+
+# HTTP-requests
+gem 'httparty'
