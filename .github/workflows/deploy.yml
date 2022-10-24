@@ -6,6 +6,7 @@ on:
     branches: [ "prod" ]
 env:
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  RATEBEER_API_TOKEN: 0cf0e91e6c6eddf698ce8d6508092e3e
 jobs:
   deploy:
       name: Deploy app

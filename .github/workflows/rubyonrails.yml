@@ -24,6 +24,7 @@ jobs:
           POSTGRES_PASSWORD: password
     env:
       RAILS_ENV: test
+      RATEBEER_API_TOKEN: 0cf0e91e6c6eddf698ce8d6508092e3e
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
       - name: Checkout code
