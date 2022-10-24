@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-10-24T20:14:52+03:00">2022-10-24T20:14:52+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-10-24T20:45:11+03:00">2022-10-24T20:45:11+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  48.85%
+  48.11%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.65
+         1.62
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>391</b> relevant lines,
+    <b>397</b> relevant lines,
     <span class="green"><b>191</b> lines covered</span> and
-    <span class="red"><b>200</b> lines missed. </span>
+    <span class="red"><b>206</b> lines missed. </span>
     (<span class="red">
-  48.85%
+  48.11%
 </span>
 )
   </div>
@@ -106,10 +106,10 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#3b00234ffd6bfbe51f1ea04ff2900a7a60466307" class="src_link" title="app/controllers/beer_clubs_controller.rb">app/controllers/beer_clubs_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">0.00 %</td>
-            <td class="cell--number">77</td>
-            <td class="cell--number">54</td>
+            <td class="cell--number">80</td>
+            <td class="cell--number">59</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">54</td>
+            <td class="cell--number">59</td>
             <td class="cell--number">0.00</td>
             
           </tr>
@@ -140,9 +140,9 @@
             <td class="strong t-file__name"><a href="#e3f08b39eafc254f39cab742dbf30c2e1cecc314" class="src_link" title="app/controllers/memberships_controller.rb">app/controllers/memberships_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">0.00 %</td>
             <td class="cell--number">90</td>
-            <td class="cell--number">63</td>
+            <td class="cell--number">64</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">63</td>
+            <td class="cell--number">64</td>
             <td class="cell--number">0.00</td>
             
           </tr>
@@ -401,14 +401,14 @@
     <span class="group_name">Controllers</span>
     (<span class="covered_percent">
       <span class="red">
-  37.32%
+  36.55%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.42
+         1.39
        </span>
     </span> hits/line
     )
@@ -421,11 +421,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>284</b> relevant lines,
+    <b>290</b> relevant lines,
     <span class="green"><b>106</b> lines covered</span> and
-    <span class="red"><b>178</b> lines missed. </span>
+    <span class="red"><b>184</b> lines missed. </span>
     (<span class="red">
-  37.32%
+  36.55%
 </span>
 )
   </div>
@@ -462,10 +462,10 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#3b00234ffd6bfbe51f1ea04ff2900a7a60466307" class="src_link" title="app/controllers/beer_clubs_controller.rb">app/controllers/beer_clubs_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">0.00 %</td>
-            <td class="cell--number">77</td>
-            <td class="cell--number">54</td>
+            <td class="cell--number">80</td>
+            <td class="cell--number">59</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">54</td>
+            <td class="cell--number">59</td>
             <td class="cell--number">0.00</td>
             
           </tr>
@@ -496,9 +496,9 @@
             <td class="strong t-file__name"><a href="#e3f08b39eafc254f39cab742dbf30c2e1cecc314" class="src_link" title="app/controllers/memberships_controller.rb">app/controllers/memberships_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">0.00 %</td>
             <td class="cell--number">90</td>
-            <td class="cell--number">63</td>
+            <td class="cell--number">64</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">63</td>
+            <td class="cell--number">64</td>
             <td class="cell--number">0.00</td>
             
           </tr>
@@ -1480,9 +1480,9 @@
     
 
     <div class="t-line-summary">
-      <b>54</b> relevant lines.
+      <b>59</b> relevant lines.
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>54</b> lines missed.</span>
+      <span class="red"><b>59</b> lines missed.</span>
     </div>
 
     
@@ -1620,7 +1620,7 @@
 
             
 
-            <code class="ruby">    @membership = Membership.new</code>
+            <code class="ruby">    @membership = Membership.find { |m| m.beer_club_id == @beer_club.id &amp;&amp; m.user_id == current_user.id }</code>
           </li>
         </div>
       
@@ -1631,29 +1631,29 @@
 
             
 
-            <code class="ruby">    @membership.beer_club = @beer_club</code>
+            <code class="ruby">    if @membership.nil?</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="14">
+          <li class="missed" data-hits="0" data-linenumber="14">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      @membership = Membership.new</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="15">
+          <li class="missed" data-hits="0" data-linenumber="15">
             
             
 
             
 
-            <code class="ruby">    # Check if current user is already a member</code>
+            <code class="ruby">      @membership.beer_club = @beer_club</code>
           </li>
         </div>
       
@@ -1664,7 +1664,7 @@
 
             
 
-            <code class="ruby">    @club_is_joinable = current_user ? !(current_user.beer_clubs.include? @beer_club) : false</code>
+            <code class="ruby">      @current_user_is_member = false</code>
           </li>
         </div>
       
@@ -1675,29 +1675,29 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="18">
+          <li class="missed" data-hits="0" data-linenumber="18">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      @current_user_is_member = true</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="19">
+          <li class="missed" data-hits="0" data-linenumber="19">
             
             
 
             
 
-            <code class="ruby">  # GET /beer_clubs/new</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1708,12 +1708,45 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="21">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="22">
+            
+            
+
+            
+
+            <code class="ruby">  # GET /beer_clubs/new</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="23">
+            
+            
+
+            
+
             <code class="ruby">  def new</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="21">
+          <li class="missed" data-hits="0" data-linenumber="24">
             
             
 
@@ -1724,57 +1757,24 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="22">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="23">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="24">
-            
-            
-
-            
-
-            <code class="ruby">  # GET /beer_clubs/1/edit</code>
-          </li>
-        </div>
-      
-        <div>
           <li class="missed" data-hits="0" data-linenumber="25">
             
             
 
             
 
-            <code class="ruby">  def edit</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="26">
+          <li class="never" data-hits="" data-linenumber="26">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1785,18 +1785,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  # GET /beer_clubs/1/edit</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="28">
+          <li class="missed" data-hits="0" data-linenumber="28">
             
             
 
             
 
-            <code class="ruby">  # POST /beer_clubs or /beer_clubs.json</code>
+            <code class="ruby">  def edit</code>
           </li>
         </div>
       
@@ -1807,18 +1807,18 @@
 
             
 
-            <code class="ruby">  def create</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="30">
+          <li class="never" data-hits="" data-linenumber="30">
             
             
 
             
 
-            <code class="ruby">    @beer_club = BeerClub.new(beer_club_params)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1829,7 +1829,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  # POST /beer_clubs or /beer_clubs.json</code>
           </li>
         </div>
       
@@ -1840,7 +1840,7 @@
 
             
 
-            <code class="ruby">    respond_to do |format|</code>
+            <code class="ruby">  def create</code>
           </li>
         </div>
       
@@ -1851,18 +1851,18 @@
 
             
 
-            <code class="ruby">      if @beer_club.save</code>
+            <code class="ruby">    @beer_club = BeerClub.new(beer_club_params)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="34">
+          <li class="never" data-hits="" data-linenumber="34">
             
             
 
             
 
-            <code class="ruby">        format.html { redirect_to beer_club_url(@beer_club), notice: &quot;Beer club was successfully created.&quot; }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1873,7 +1873,7 @@
 
             
 
-            <code class="ruby">        format.json { render :show, status: :created, location: @beer_club }</code>
+            <code class="ruby">    respond_to do |format|</code>
           </li>
         </div>
       
@@ -1884,7 +1884,7 @@
 
             
 
-            <code class="ruby">      else</code>
+            <code class="ruby">      if @beer_club.save</code>
           </li>
         </div>
       
@@ -1895,7 +1895,7 @@
 
             
 
-            <code class="ruby">        format.html { render :new, status: :unprocessable_entity }</code>
+            <code class="ruby">        format.html { redirect_to beer_club_url(@beer_club), notice: &quot;Beer club was successfully created.&quot; }</code>
           </li>
         </div>
       
@@ -1906,7 +1906,7 @@
 
             
 
-            <code class="ruby">        format.json { render json: @beer_club.errors, status: :unprocessable_entity }</code>
+            <code class="ruby">        format.json { render :show, status: :created, location: @beer_club }</code>
           </li>
         </div>
       
@@ -1917,7 +1917,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">      else</code>
           </li>
         </div>
       
@@ -1928,7 +1928,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">        format.html { render :new, status: :unprocessable_entity }</code>
           </li>
         </div>
       
@@ -1939,122 +1939,12 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="42">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="43">
-            
-            
-
-            
-
-            <code class="ruby">  # PATCH/PUT /beer_clubs/1 or /beer_clubs/1.json</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="44">
-            
-            
-
-            
-
-            <code class="ruby">  def update</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="45">
-            
-            
-
-            
-
-            <code class="ruby">    respond_to do |format|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="46">
-            
-            
-
-            
-
-            <code class="ruby">      if @beer_club.update(beer_club_params)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="47">
-            
-            
-
-            
-
-            <code class="ruby">        format.html { redirect_to beer_club_url(@beer_club), notice: &quot;Beer club was successfully updated.&quot; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="48">
-            
-            
-
-            
-
-            <code class="ruby">        format.json { render :show, status: :ok, location: @beer_club }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="49">
-            
-            
-
-            
-
-            <code class="ruby">      else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="50">
-            
-            
-
-            
-
-            <code class="ruby">        format.html { render :edit, status: :unprocessable_entity }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="51">
-            
-            
-
-            
-
             <code class="ruby">        format.json { render json: @beer_club.errors, status: :unprocessable_entity }</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="52">
+          <li class="missed" data-hits="0" data-linenumber="42">
             
             
 
@@ -2065,7 +1955,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="53">
+          <li class="missed" data-hits="0" data-linenumber="43">
             
             
 
@@ -2076,7 +1966,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="54">
+          <li class="missed" data-hits="0" data-linenumber="44">
             
             
 
@@ -2087,7 +1977,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="55">
+          <li class="never" data-hits="" data-linenumber="45">
             
             
 
@@ -2098,51 +1988,29 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="56">
+          <li class="never" data-hits="" data-linenumber="46">
             
             
 
             
 
-            <code class="ruby">  # DELETE /beer_clubs/1 or /beer_clubs/1.json</code>
+            <code class="ruby">  # PATCH/PUT /beer_clubs/1 or /beer_clubs/1.json</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="57">
+          <li class="missed" data-hits="0" data-linenumber="47">
             
             
 
             
 
-            <code class="ruby">  def destroy</code>
+            <code class="ruby">  def update</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="58">
-            
-            
-
-            
-
-            <code class="ruby">    @beer_club.destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="59">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="60">
+          <li class="missed" data-hits="0" data-linenumber="48">
             
             
 
@@ -2153,29 +2021,84 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="61">
+          <li class="missed" data-hits="0" data-linenumber="49">
             
             
 
             
 
-            <code class="ruby">      format.html { redirect_to beer_clubs_url, notice: &quot;Beer club was successfully destroyed.&quot; }</code>
+            <code class="ruby">      if @beer_club.update(beer_club_params)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="62">
+          <li class="missed" data-hits="0" data-linenumber="50">
             
             
 
             
 
-            <code class="ruby">      format.json { head :no_content }</code>
+            <code class="ruby">        format.html { redirect_to beer_club_url(@beer_club), notice: &quot;Beer club was successfully updated.&quot; }</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="63">
+          <li class="missed" data-hits="0" data-linenumber="51">
+            
+            
+
+            
+
+            <code class="ruby">        format.json { render :show, status: :ok, location: @beer_club }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="52">
+            
+            
+
+            
+
+            <code class="ruby">      else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="53">
+            
+            
+
+            
+
+            <code class="ruby">        format.html { render :edit, status: :unprocessable_entity }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="54">
+            
+            
+
+            
+
+            <code class="ruby">        format.json { render json: @beer_club.errors, status: :unprocessable_entity }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="55">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="56">
             
             
 
@@ -2186,7 +2109,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="64">
+          <li class="missed" data-hits="0" data-linenumber="57">
             
             
 
@@ -2197,13 +2120,90 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="65">
+          <li class="never" data-hits="" data-linenumber="58">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="59">
+            
+            
+
+            
+
+            <code class="ruby">  # DELETE /beer_clubs/1 or /beer_clubs/1.json</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="60">
+            
+            
+
+            
+
+            <code class="ruby">  def destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="61">
+            
+            
+
+            
+
+            <code class="ruby">    @beer_club.destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="62">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="63">
+            
+            
+
+            
+
+            <code class="ruby">    respond_to do |format|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="64">
+            
+            
+
+            
+
+            <code class="ruby">      format.html { redirect_to beer_clubs_url, notice: &quot;Beer club was successfully destroyed.&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="65">
+            
+            
+
+            
+
+            <code class="ruby">      format.json { head :no_content }</code>
           </li>
         </div>
       
@@ -2214,18 +2214,18 @@
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="67">
+          <li class="missed" data-hits="0" data-linenumber="67">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -2236,7 +2236,7 @@
 
             
 
-            <code class="ruby">  # Use callbacks to share common setup or constraints between actions.</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2247,34 +2247,12 @@
 
             
 
-            <code class="ruby">  def set_beer_club</code>
+            <code class="ruby">  private</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="70">
-            
-            
-
-            
-
-            <code class="ruby">    @beer_club = BeerClub.find(params[:id])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="71">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="72">
+          <li class="never" data-hits="" data-linenumber="70">
             
             
 
@@ -2285,13 +2263,35 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="73">
+          <li class="never" data-hits="" data-linenumber="71">
             
             
 
             
 
-            <code class="ruby">  # Only allow a list of trusted parameters through.</code>
+            <code class="ruby">  # Use callbacks to share common setup or constraints between actions.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="72">
+            
+            
+
+            
+
+            <code class="ruby">  def set_beer_club</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="73">
+            
+            
+
+            
+
+            <code class="ruby">    @beer_club = BeerClub.find(params[:id])</code>
           </li>
         </div>
       
@@ -2302,12 +2302,45 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="75">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="76">
+            
+            
+
+            
+
+            <code class="ruby">  # Only allow a list of trusted parameters through.</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="77">
+            
+            
+
+            
+
             <code class="ruby">  def beer_club_params</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="75">
+          <li class="missed" data-hits="0" data-linenumber="78">
             
             
 
@@ -2318,7 +2351,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="76">
+          <li class="missed" data-hits="0" data-linenumber="79">
             
             
 
@@ -2329,7 +2362,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="77">
+          <li class="missed" data-hits="0" data-linenumber="80">
             
             
 
@@ -4202,9 +4235,9 @@
     
 
     <div class="t-line-summary">
-      <b>63</b> relevant lines.
+      <b>64</b> relevant lines.
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>63</b> lines missed.</span>
+      <span class="red"><b>64</b> lines missed.</span>
     </div>
 
     
@@ -4562,7 +4595,7 @@
 
             
 
-            <code class="ruby">        format.html { redirect_to membership_url(@membership), notice: &quot;Membership was successfully created.&quot; }</code>
+            <code class="ruby">        format.html { redirect_to   beer_club_url(@membership), notice: &quot;Welcome to the club #{current_user.username}!&quot; }</code>
           </li>
         </div>
       
@@ -4826,18 +4859,18 @@
 
             
 
-            <code class="ruby">    @membership.destroy</code>
+            <code class="ruby">    beer_club = BeerClub.find(@membership.beer_club_id)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="57">
+          <li class="missed" data-hits="0" data-linenumber="57">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    @membership.destroy</code>
           </li>
         </div>
       
@@ -4859,7 +4892,7 @@
 
             
 
-            <code class="ruby">      format.html { redirect_to memberships_url, notice: &quot;Membership was successfully destroyed.&quot; }</code>
+            <code class="ruby">      format.html { redirect_to user_path(current_user), notice: &quot;Membership in #{beer_club.name} successfully ended.&quot; }</code>
           </li>
         </div>
       
