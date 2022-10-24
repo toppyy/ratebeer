@@ -9,6 +9,11 @@ class BeerClubsController < ApplicationController
 
   # GET /beer_clubs/1 or /beer_clubs/1.json
   def show
+    @membership = Membership.new
+    @membership.beer_club = @beer_club
+
+    # Check if current user is already a member
+    @club_is_joinable = current_user ? !(current_user.beer_clubs.include? @beer_club) : false
   end
 
   # GET /beer_clubs/new
