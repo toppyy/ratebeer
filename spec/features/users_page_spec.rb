@@ -43,11 +43,11 @@ describe "User" do
     end
 
     it "beer style is displayed correctly" do
-      best_style = "weizen"
+      best_style = FactoryBot.create :style
       create_beer_with_rating_and_style({ user: @user }, 3, best_style)
       visit user_path(@user)
       
-      expect(page).to have_content 'Favorite beer style is: ' + best_style
+      expect(page).to have_content 'Favorite beer style is: ' + best_style.name
     end
 
     it "brewery is displayed correctly" do
