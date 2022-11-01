@@ -14,6 +14,7 @@ class PlacesController < ApplicationController
   def search
     city = params[:city]
     @places = BeermappingApi.places_in(city)
+    @weather = WeatherApi.weather_in(city)
     # Store city into session to find places in cache
     session[:city] = city
     if @places.empty?
@@ -22,4 +23,7 @@ class PlacesController < ApplicationController
       render :index, status: 418
     end
   end
+
+
+
 end

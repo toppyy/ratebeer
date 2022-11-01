@@ -7,6 +7,11 @@
   <%= form.submit "Search" %>
 <% end %>
 
+<% if @weather %>
+  <h3>Beer weather is:</h3>
+  <p><%= @weather %></p>
+<% end %>
+
 <% if @places %>
   <table>
     <thead>
