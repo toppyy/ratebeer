@@ -25,6 +25,7 @@ jobs:
     env:
       RAILS_ENV: test
       BEERMAPPING_APIKEY: ${{ secrets.BEERMAPPING_APIKEY }}
+      WEATHER_APIKEY: ${{ secrets.WEATHER_APIKEY }}
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
       - name: Checkout code

@@ -156,7 +156,6 @@
       "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/style.rb": {
         "lines": [
           1,
-          null,
           1,
           null,
           1,
@@ -199,7 +198,7 @@
           1,
           null,
           1,
-          125,
+          127,
           null,
           96,
           null,
@@ -503,6 +502,42 @@
           null
         ]
       },
+      "/home/toby/projects/HY/rubyonrails/ratebeer/lib/weather_api.rb": {
+        "lines": [
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/weather.rb": {
+        "lines": [
+          1,
+          1,
+          3,
+          null,
+          null
+        ]
+      },
       "/home/toby/projects/HY/rubyonrails/ratebeer/lib/beermapping_api.rb": {
         "lines": [
           1,
@@ -538,7 +573,7 @@
         "lines": [
           1,
           1,
-          6,
+          8,
           null,
           null
         ]
@@ -559,14 +594,15 @@
           null,
           null,
           1,
-          3,
-          3,
+          4,
+          4,
+          4,
           null,
-          3,
-          3,
+          4,
+          4,
           1,
           null,
-          2,
+          3,
           null,
           null,
           null
@@ -857,6 +893,6 @@
         }
       }
     },
-    "timestamp": 1667322629
+    "timestamp": 1667327425
   }
 }
