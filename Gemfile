@@ -79,6 +79,7 @@ group :test do
   gem "webdrivers"
   gem 'launchy'
   gem 'simplecov', require: false
+  gem 'webmock'
 end
 
 # Debuggger
@@ -88,3 +89,6 @@ end
 
 # For hashing passwords
 gem 'bcrypt', '~> 3.1.7'
+
+# HTTP-requests
+gem 'httparty'

@@ -7,7 +7,7 @@
 name: "Ruby on Rails CI"
 on:
   push:
-    branches: [ "main" ] # Jos repositoriosi päähaara ei ole main, muuta nämä
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 jobs:
@@ -24,6 +24,7 @@ jobs:
           POSTGRES_PASSWORD: password
     env:
       RAILS_ENV: test
+      BEERMAPPING_APIKEY: ${{ secrets.BEERMAPPING_APIKEY }}
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
       - name: Checkout code

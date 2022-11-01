@@ -1,0 +1,12 @@
+<h2><%= style.name %></h2>
+
+<p><b>Description:</b>
+    <%= style.description %>
+</p>
+
+<h3>Beers:</h3>
+<ul>
+    <% style.beers.each do |beer| %>
+        <li><%= link_to beer.name, beer %></li>
+    <% end %>
+</ul>

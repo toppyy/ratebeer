@@ -17,8 +17,8 @@ RSpec.describe User, type: :model do
 
   describe "with a proper password" do
     let(:user) { FactoryBot.create(:user) }
-    let(:test_brewery) { Brewery.new name: "test", year: 2000 }
-    let(:test_beer) { Beer.create name: "testbeer", style: "teststyle", brewery: test_brewery }
+    let(:test_brewery) { FactoryBot.create :brewery }
+    let(:test_beer) { FactoryBot.create :beer }
   
     it "is saved" do
       expect(user).to be_valid
@@ -94,16 +94,17 @@ RSpec.describe User, type: :model do
     end
 
     it "is the only rated if only one rating" do
-      expected_style = "test_style"
+      expected_style = FactoryBot.create :style
       create_beer_with_rating_and_style({ user: user}, 10, expected_style)
       expect(user.favorite_style).to eq(expected_style)
     end
 
     it "is the one with highest rating if several rated" do
-      expected_style = "test_style"
-      create_beer_with_rating_and_style({ user: user}, 10, "fail")
+      expected_style = FactoryBot.create :style
+      another_style  = Style.create name: "fail", description: "nonsense" 
+      create_beer_with_rating_and_style({ user: user}, 10, another_style)
       create_beer_with_rating_and_style({ user: user}, 15, expected_style)
-      create_beer_with_rating_and_style({ user: user}, 9, "fail")
+      create_beer_with_rating_and_style({ user: user}, 9,  another_style)
 
       expect(user.favorite_style).to eq(expected_style)
     end

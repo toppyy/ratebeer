@@ -7,6 +7,7 @@ describe "Beer" do
 
   before :each do
     FactoryBot.create :brewery
+    FactoryBot.create :style
     sign_in(username: "Pekka", password: "Foobar1")
   end
 

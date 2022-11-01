@@ -27,10 +27,10 @@ class User < ApplicationRecord
 
     favorite =  ratings.
                 joins(:beer).
-                group("beers.style").
-                select("avg(score) as avg,style").
+                group("beers.style_id").
+                select("avg(score) as avg,style_id").
                 order(avg: :desc).first
-    favorite.style
+    Style.find(favorite.style_id)
   end
 
   def favorite_brewery
