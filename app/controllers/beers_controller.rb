@@ -14,6 +14,7 @@ class BeersController < ApplicationController
     @rating.beer = @beer
   end
 
+
   # GET /beers/new
   def new
     @beer = Beer.new
