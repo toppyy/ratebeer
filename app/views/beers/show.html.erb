@@ -8,11 +8,11 @@
   <%= form_with(model: @rating) do |form| %>
     <%= form.hidden_field :beer_id %>
     score: <%= form.number_field :score %>
-    <%= form.submit "Create rating" %>
+    <%= form.submit "Create rating", class: "btn btn-success" %>
   <% end %>
 
   <div>
-    <%= link_to "Edit this beer", edit_beer_path(@beer) %>
-    <%= button_to "Destroy this beer", @beer, method: :delete %>
+    <%= link_to "Edit this beer", edit_beer_path(@beer), class: "btn btn-primary"  %>
+    <%= button_to "Destroy this beer", @beer, method: :delete, class: "btn btn-danger" %>
   </div>
 <% end %>
