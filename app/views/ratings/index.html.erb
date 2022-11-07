@@ -45,17 +45,17 @@
 
     <div class="col-sm-4">
 
-      <h3>Best beers</h3>
+      <h3>Best styles</h3>
       <table class="table table-hover">
         <tr>
-          <% ["Beer","Average"].each do |attr|%>
+          <% ["Style","Average"].each do |attr|%>
             <th><%= attr %></th>
           <% end %>
         <tr>
-        <% @top_beers.each do |beer| %>
+        <% @top_styles.each do |style| %>
           <tr>
-            <td><%= beer.name %></td>
-            <td><%= beer.average_rating %></td>
+            <td><%= style.name %></td>
+            <td><%= style.average_rating %></td>
           </tr>
         <% end %>
       </table>
