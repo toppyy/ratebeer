@@ -8,6 +8,9 @@ class Brewery < ApplicationRecord
                                    only_integer: true }
   validate :year, :year_cannot_be_greater_current_year
 
+  scope :active, -> { where active: true }
+  scope :retired, -> { where active: [nil,false] }
+
   def year_cannot_be_greater_current_year
     errors.add(:year, "can't be greater than current year #{Time.now.year}") unless year <= Time.now.year
   end
