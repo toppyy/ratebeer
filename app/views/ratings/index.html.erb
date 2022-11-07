@@ -18,6 +18,17 @@
   </div>
 
   <div class="row">
+    <div class="col-sm-4">
+      <h3>Most active users</h3>
+      <ol>
+        <% @top_raters.each do |user| %>
+          <li><%= "#{user.username} with #{user.rating_count} ratings" %></li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
     <h3>Recent ratings:</h3>
     <table class="table table-hover">
         <tr>
