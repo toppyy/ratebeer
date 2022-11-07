@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  include RatingAverage
+  include RatingAverage, TopN
   validates :username, uniqueness: true,
                        length: { minimum: 3, maximum: 30 }
 
