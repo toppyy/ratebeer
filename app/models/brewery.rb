@@ -1,5 +1,6 @@
 class Brewery < ApplicationRecord
-  include RatingAverage, TopN
+  include TopN
+  include RatingAverage
   has_many :beers, dependent: :destroy
   has_many :ratings, through: :beers
 
@@ -9,7 +10,7 @@ class Brewery < ApplicationRecord
   validate :year, :year_cannot_be_greater_current_year
 
   scope :active, -> { where active: true }
-  scope :retired, -> { where active: [nil,false] }
+  scope :retired, -> { where active: [nil, false] }
 
   def year_cannot_be_greater_current_year
     errors.add(:year, "can't be greater than current year #{Time.now.year}") unless year <= Time.now.year
@@ -25,5 +26,4 @@ class Brewery < ApplicationRecord
     self.year = 2022
     puts "changed year to #{year}"
   end
-
 end

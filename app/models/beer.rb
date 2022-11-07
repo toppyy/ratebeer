@@ -1,5 +1,6 @@
 class Beer < ApplicationRecord
-  include RatingAverage, TopN
+  include TopN
+  include RatingAverage
   belongs_to :brewery
   belongs_to :style
   has_many :ratings, dependent: :destroy
