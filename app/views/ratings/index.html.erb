@@ -4,68 +4,18 @@
 
   <div class="row">
     <div class="col-sm-4">
-
-      <h3>Best breweries</h3>
-      <table class="table table-hover">
-        <tr>
-          <% ["Brewery","Average"].each do |attr|%>
-            <th><%= attr %></th>
-          <% end %>
-        <tr>
-        <% @top_breweries.each do |brewery| %>
-          <tr>
-            <td><%= brewery.name %></td>
-            <td><%= brewery.average_rating %></td>
-          </tr>
-        <% end %>
-      </table>
-
+      <%= render "top_table", unit: "Brewery", records: @top_breweries %>
     </div>
     
-  
     <div class="col-sm-4">
-
-      <h3>Best beers</h3>
-      <table class="table table-hover">
-        <tr>
-          <% ["Beer","Average"].each do |attr|%>
-            <th><%= attr %></th>
-          <% end %>
-        <tr>
-        <% @top_beers.each do |beer| %>
-          <tr>
-            <td><%= beer.name %></td>
-            <td><%= beer.average_rating %></td>
-          </tr>
-        <% end %>
-      </table>
-
+      <%= render "top_table", unit: "Beer", records: @top_beers %>
     </div>
 
-
     <div class="col-sm-4">
-
-      <h3>Best styles</h3>
-      <table class="table table-hover">
-        <tr>
-          <% ["Style","Average"].each do |attr|%>
-            <th><%= attr %></th>
-          <% end %>
-        <tr>
-        <% @top_styles.each do |style| %>
-          <tr>
-            <td><%= style.name %></td>
-            <td><%= style.average_rating %></td>
-          </tr>
-        <% end %>
-      </table>
-
+      <%= render "top_table", unit: "Style", records: @top_styles %>
     </div>
-
-</div>
-
-
-
+    
+  </div>
 
   <div class="row">
     <h3>Recent ratings:</h3>
