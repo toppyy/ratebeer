@@ -22,7 +22,7 @@
   <% if @user.ratings.empty? %>
       No ratings yet.
   <% else %>
-      <p>Has made <%= pluralize(@user.ratings.count,"rating") %> with an average of <%= @user.average_rating %>.</p>
+      <p>Has made <%= pluralize(@user.ratings.count,"rating") %> with an average of <%= round(@user.average_rating) %>.</p>
       <p>Favorite beer style is: <%= @user.favorite_style %> </p>
       <p>Favorite brewery is: <%= @user.favorite_brewery.name %> </p>
   <% end %>
