@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by username: params[:username]
 
     # Tarkastetaan, että käyttäjätunnus on aktiivinen
-    if !user.active
+    if user && !user&.active
       redirect_to signin_path, notice: "Your account is closed. Contact the admin."
       return
     end
