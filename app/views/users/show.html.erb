@@ -5,7 +5,7 @@
     Status: <%= @user.active %>
   </p>
   <p>
-    <%= link_to "Change account status", toggle_activity_user_path(@user.id), data: {turbo_method: "post"}, class: "btn btn-danger"  if current_user.admin %>
+    <%= link_to "Change account status", toggle_activity_user_path(@user.id), data: {turbo_method: "post"}, class: "btn btn-danger"  if current_user.admin  unless current_user.nil? %>
   </p>
   <% if @user.beer_clubs.empty? %>
       No beer club memberships.

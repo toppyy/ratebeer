@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-    @user.active = true
 
     respond_to do |format|
       if @user.save
@@ -63,8 +62,8 @@ class UsersController < ApplicationController
   end
 
   # POST
-  def toggle_activity  
-    @user.update_attribute :active, (not @user.active)
+  def toggle_activity
+    @user.update_attribute :active, !@user.active
     new_status = @user.active? ? "active" : "closed"
     redirect_to @user, notice: "account status changed to #{new_status}"
   end
