@@ -92,3 +92,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # HTTP-requests
 gem 'httparty'
+
+# Boostrap
+gem 'bootstrap', '~> 5.2.0'
+gem 'jquery-rails'
+gem 'mini_racer'

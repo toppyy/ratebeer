@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
-  before_action :check_user, only: %i[edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy toggle_activity]
+  # except onlyn sijaan, jotta uudet metodit ovat oletuksena vain admin ja käyttäjän itse käytettävissä
+  before_action :check_user, except: %i[index show new create toggle_activity]
+  before_action :ensure_is_admin, except: %i[edit update destroy index show new create toggle_activity]
 
   # GET /users or /users.json
   def index
@@ -58,6 +60,13 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # POST
+  def toggle_activity
+    @user.update_attribute :active, !@user.active
+    new_status = @user.active? ? "active" : "closed"
+    redirect_to @user, notice: "account status changed to #{new_status}"
   end
 
   private

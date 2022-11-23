@@ -3,5 +3,12 @@
     <strong>Username:</strong>
     <%= user.username %>
   </p>
+  <p>
+    <% if user.active %>
+      <span class="badge text-bg-success">Active account</span>
+    <% else %>
+      <span class="badge text-bg-danger">Closed account</span>
+    <% end %>
+  </p>
 
 </div>

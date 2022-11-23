@@ -11,22 +11,35 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+
+ <div class="row">
+  <div class="col">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+        <%= form.text_field :name , { :class => "form-control", :placeholder => "Beer Maniacs" }%>     
+      </div>
   </div>
 
-  <div>
-    <%= form.label :founded, style: "display: block" %>
-    <%= form.number_field :founded %>
+  <div class="col">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Founded</span>
+      <%= form.number_field :founded,  { :class => "form-control", :placeholder => "E.g 1999" } %>
+    </div>
   </div>
+</div>
+  
+ <div class="row">
+  <div class="col">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">City</span>
+      <%= form.text_field :city, { :class => "form-control", :placeholder => "New York" } %>
+    </div>
+  </div>
+  <div class="col">
+  </div>
+</div>
 
-  <div>
-    <%= form.label :city, style: "display: block" %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+<div>
+  <%= form.submit "Create club", :class => "btn btn-success" %>
+</div>
 <% end %>

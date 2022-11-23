@@ -6,7 +6,23 @@
 <%= link_to('New Beer', new_beer_path) if current_user %>
 <br>
 <div id="beers">
-  <% @beers.each do |beer| %>
-    <%= render beer %>
-  <% end %>
+  <table class="table table-hover">
+    <tr>
+      <% ["Beer","Style", "Brewery", "Rating"].each do |attr|%>
+        <th><%= attr %></th>
+      <% end %>
+    <tr>
+    <% @beers.each do |beer| %>
+      <tr>
+          <td>  <%= link_to beer.name, beer %>                      </td>
+          <td>  <%= link_to beer.style.name, beer.style  %>         </td>
+          <td>  <%= link_to beer.brewery.name, beer.brewery  %>     </td>
+          <td>  <%= round(beer.average_rating) if !beer.ratings.empty? %>  </td>
+      </tr>
+    <% end %>
+
+  </table>
+
+    
+
 </div>

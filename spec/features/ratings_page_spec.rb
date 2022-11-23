@@ -36,7 +36,7 @@ describe "Rating" do
         expect(page).to have_content b2.ratings.first.to_s
         expect(page).to have_content b3.ratings.first.to_s
 
-        expect(page).to have_content "Ratings: 3"
+        expect(page).to have_content "with 3 ratings"
     end
 
     it "by the user is displayed in the user-page (and none others)" do

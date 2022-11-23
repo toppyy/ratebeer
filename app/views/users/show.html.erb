@@ -1,11 +1,12 @@
-<p style="color: green"><%= notice %></p>
-
-
 <div>
   <h2>Username: </h2> 
   <p><%= @user.username %></p>
-
-
+  <p>
+    Status: <%= @user.active %>
+  </p>
+  <p>
+    <%= link_to "Change account status", toggle_activity_user_path(@user.id), data: {turbo_method: "post"}, class: "btn btn-danger"  if current_user.admin  unless current_user.nil? %>
+  </p>
   <% if @user.beer_clubs.empty? %>
       No beer club memberships.
   <% else %>
@@ -22,7 +23,7 @@
   <% if @user.ratings.empty? %>
       No ratings yet.
   <% else %>
-      <p>Has made <%= pluralize(@user.ratings.count,"rating") %> with an average of <%= @user.average_rating %>.</p>
+      <p>Has made <%= pluralize(@user.ratings.count,"rating") %> with an average of <%= round(@user.average_rating) %>.</p>
       <p>Favorite beer style is: <%= @user.favorite_style %> </p>
       <p>Favorite brewery is: <%= @user.favorite_brewery.name %> </p>
   <% end %>
@@ -40,7 +41,7 @@
 
   <% if @user == current_user %>
     <%= link_to "Edit this user", edit_user_path(@user) %>
-    <%= button_to "Destroy this user", @user, method: :delete %>
+    <%= button_to "Destroy this user", @user, method: :delete, class: "btn btn-danger" %>
    <% end %>
    <br>
   <%= link_to "Back to users", users_path %>

@@ -17,8 +17,14 @@ Rails.application.routes.draw do
 
   post 'places', to: 'places#search'
   resources :places, only: [:index, :show]
-  resources :styles, only: [:index, :show]
+  resources :styles, only: [:index, :show, :edit, :destroy]
 
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
 
+  resources :users  do
+    post 'toggle_activity', on: :member
+  end
 end
 
