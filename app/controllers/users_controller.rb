@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy toggle_activity]
   before_action :check_user, only: %i[edit update destroy]
+  before_action :ensure_is_admin, only: [:toggle_activity]
 
   # GET /users or /users.json
   def index
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
+    @user.active = true
 
     respond_to do |format|
       if @user.save
@@ -58,6 +60,13 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # POST
+  def toggle_activity  
+    @user.update_attribute :active, (not @user.active)
+    new_status = @user.active? ? "active" : "closed"
+    redirect_to @user, notice: "account status changed to #{new_status}"
   end
 
   private

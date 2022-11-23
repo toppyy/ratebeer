@@ -1,11 +1,12 @@
-<p style="color: green"><%= notice %></p>
-
-
 <div>
   <h2>Username: </h2> 
   <p><%= @user.username %></p>
-
-
+  <p>
+    Status: <%= @user.active %>
+  </p>
+  <p>
+    <%= link_to "Change account status", toggle_activity_user_path(@user.id), data: {turbo_method: "post"}, class: "btn btn-danger"  if current_user.admin %>
+  </p>
   <% if @user.beer_clubs.empty? %>
       No beer club memberships.
   <% else %>
