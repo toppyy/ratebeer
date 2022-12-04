@@ -1,9 +1,22 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Beer clubs</h1>
+<br>
 <%= link_to('New beer club', new_beer_club_path) if current_user %>
+<br>
+
+<div id="beer_clubs_sort" style="margin: 2%">
+  <h4>Sort  by:</h4>
+  
+  <ul>
+    <li><%= link_to "Name", beer_clubs_path(order: "name")%></li>
+    <li><%= link_to "Year", beer_clubs_path(order: "year")%></li>
+    <li><%= link_to "City", beer_clubs_path(order: "city")%></li>
+  </ul>
+  
+</div>
 
 <div id="beer_clubs">
+
+
   <% @beer_clubs.each do |beer_club| %>
 
     <div class="card" style="width: 18rem;">
