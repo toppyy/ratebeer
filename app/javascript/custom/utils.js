@@ -77,8 +77,33 @@ const beers = () => {
 
 /* Brewery */
 
+const createElement = (tag,innerHTML) => {
+	const elem = document.createElement(tag)
+	if (innerHTML) {
+		elem.innerHTML = innerHTML
+	}
+	return(elem)
+}
 
 const BREWERIES = {}
+
+BREWERIES.sortByName = () => {
+	BREWERIES.list.sort((a, b) => {
+		return a.name.toUpperCase().localeCompare(b.name.toUpperCase());
+	});
+}
+
+BREWERIES.sortByYear = () => {
+	BREWERIES.list.sort((a, b) => {
+		return a.year - b.year;
+	});
+}
+BREWERIES.sortByBeerCount = () => {
+	BREWERIES.list.sort((a, b) => {
+		return a.beercount - b.beercount;
+	});
+}
+
 
 BREWERIES.createHeader = () => {
 	
@@ -88,23 +113,21 @@ BREWERIES.createHeader = () => {
 	const headerRow = createElement("tr");
 	theader.appendChild(headerRow)
 
-	const headers = ["Name", "Founded", "Active?", "Beers manufactured"];
+	const headers = [
+		{ text: "Name", 			onclick: (e) => {  e.preventDefault; BREWERIES.sortByName(); BREWERIES.show();  } },
+		{ text: "Founded", 			onclick: (e) => {  e.preventDefault; BREWERIES.sortByYear(); BREWERIES.show();  } },
+		{ text: "Active" },
+		{ text: "Beers manufactured", onclick: (e) => {  e.preventDefault; BREWERIES.sortByBeerCount(); BREWERIES.show();  } }
+	];
+
+	let headerElement;
 	for (let header of headers) {
-		headerRow.appendChild(createElement("th", header))
+		headerElement = createElement("th", header.text);
+		headerElement.addEventListener('click', header.onclick)
+		headerRow.appendChild(headerElement)
 	}
 
 }
-
-BREWERIES.createTable = breweries => {
-
-	const tbody   = createElement("tbody");
-	BREWERIES.table.appendChild(tbody)
-	
-	for (let brewery of breweries) {	
-		tbody.append(makeRowOfBrewery(brewery))
-	}
-}
-
 
 const makeRowOfBrewery = brewery => {
 	const row = createElement("tr");
@@ -118,27 +141,36 @@ const makeRowOfBrewery = brewery => {
 	return(row)
 }
 
-
-const createElement = (tag,innerHTML) => {
-	const elem = document.createElement(tag)
-	if (innerHTML) {
-		elem.innerHTML = innerHTML
-	}
-	return(elem)
+BREWERIES.clear = () => {
+	const toRemove = Array(...BREWERIES.table.childNodes);
+	toRemove.forEach((elem) => { elem.remove(); });
 }
 
+BREWERIES.show = () => {
+	// Clear table
+	BREWERIES.clear();
 
+	// Add table headers
+	BREWERIES.createHeader();
+
+	// Table body
+	const tbody   = createElement("tbody");
+	BREWERIES.table.appendChild(tbody)
+	
+	for (let brewery of BREWERIES.list) {	
+		tbody.append(makeRowOfBrewery(brewery))
+	}
+}
 
 const handleBreweriesResponse = breweries => {
-	// Add table headers
-	BREWERIES.createHeader()
+	// Count number of beers in breweries and store to object
+	BREWERIES.list = breweries.map(brew => ({ beercount: brew.beers.length, ...brew  }))
 
-	// Count number of beers in breweries
-	breweries = breweries.map(brew => ({ beercount: brew.beers.length, ...brew  }))
-
-	// Add breweries to table/list
-	BREWERIES.createTable(breweries)
+	// Display breweries
+	BREWERIES.show(breweries)
 }
+
+
 
 const listBreweries = () => {
 
@@ -146,13 +178,10 @@ const listBreweries = () => {
 
   BREWERIES.table = document.getElementById("brewerylist")
 
-
   fetch("breweries.json")
     .then((response) => response.json())
     .then(handleBreweriesResponse);
 
 }
-
-
 
 export { beers, listBreweries };

@@ -10,10 +10,10 @@ class BeerClubsController < ApplicationController
     order = params[:order] || 'name'
 
     @beer_clubs = case order
-              when "name" then @beer_clubs.sort_by(&:name)
-              when "year" then @beer_clubs.sort_by(&:founded)
-              when "city" then @beer_clubs.sort_by(&:city)
-            end
+                  when "name" then @beer_clubs.sort_by(&:name)
+                  when "year" then @beer_clubs.sort_by(&:founded)
+                  when "city" then @beer_clubs.sort_by(&:city)
+                  end
   end
 
   # GET /beer_clubs/1 or /beer_clubs/1.json
