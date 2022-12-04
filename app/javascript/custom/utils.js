@@ -75,4 +75,84 @@ const beers = () => {
     .then(handleResponse);
 };
 
-export { beers };
+/* Brewery */
+
+
+const BREWERIES = {}
+
+BREWERIES.createHeader = () => {
+	
+	const theader   = createElement("thead");
+	BREWERIES.table.appendChild(theader)
+
+	const headerRow = createElement("tr");
+	theader.appendChild(headerRow)
+
+	const headers = ["Name", "Founded", "Active?", "Beers manufactured"];
+	for (let header of headers) {
+		headerRow.appendChild(createElement("th", header))
+	}
+
+}
+
+BREWERIES.createTable = breweries => {
+
+	const tbody   = createElement("tbody");
+	BREWERIES.table.appendChild(tbody)
+	
+	for (let brewery of breweries) {	
+		tbody.append(makeRowOfBrewery(brewery))
+	}
+}
+
+
+const makeRowOfBrewery = brewery => {
+	const row = createElement("tr");
+	const values = ["name", "year", "active", "beercount"];
+
+	values.forEach(val => {
+		row.appendChild(
+			createElement("td", brewery[val])
+		);
+	})
+	return(row)
+}
+
+
+const createElement = (tag,innerHTML) => {
+	const elem = document.createElement(tag)
+	if (innerHTML) {
+		elem.innerHTML = innerHTML
+	}
+	return(elem)
+}
+
+
+
+const handleBreweriesResponse = breweries => {
+	// Add table headers
+	BREWERIES.createHeader()
+
+	// Count number of beers in breweries
+	breweries = breweries.map(brew => ({ beercount: brew.beers.length, ...brew  }))
+
+	// Add breweries to table/list
+	BREWERIES.createTable(breweries)
+}
+
+const listBreweries = () => {
+
+  if (document.querySelectorAll("#brewerylist").length < 1) return;
+
+  BREWERIES.table = document.getElementById("brewerylist")
+
+
+  fetch("breweries.json")
+    .then((response) => response.json())
+    .then(handleBreweriesResponse);
+
+}
+
+
+
+export { beers, listBreweries };
