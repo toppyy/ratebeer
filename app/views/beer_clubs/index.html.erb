@@ -27,11 +27,11 @@
               <li class="list-group-item">City: <%= beer_club.city %></li>
               <li class="list-group-item">
                 Members:
-                  <% if beer_club.users.empty? %>
+                  <% if beer_club.members.empty? %>
                       No members in <%= beer_club.name %>.
                   <% else %>
                     <ul>
-                      <% beer_club.users.each do |user| %>
+                      <% beer_club.members.each do |user| %>
                       <li>
                         <%= link_to user.username, user %>
                       </li>

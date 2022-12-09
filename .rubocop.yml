@@ -72,4 +72,4 @@ Metrics/BlockLength:
 
 Metrics/MethodLength:
   Enabled: true
-  Max: 15
+  Max: 20

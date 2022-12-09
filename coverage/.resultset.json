@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/helpers/application_helper.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/helpers/application_helper.rb": {
         "lines": [
           1,
           1,
@@ -22,37 +22,37 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/helpers/beer_clubs_helper.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/helpers/beer_clubs_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/helpers/beers_helper.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/helpers/beers_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/helpers/breweries_helper.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/helpers/breweries_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/helpers/memberships_helper.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/helpers/memberships_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/helpers/users_helper.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/helpers/users_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/beer.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/beer.rb": {
         "lines": [
           1,
           1,
@@ -71,14 +71,14 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/application_record.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/concerns/top_n.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/concerns/top_n.rb": {
         "lines": [
           1,
           1,
@@ -90,7 +90,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/concerns/rating_average.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/concerns/rating_average.rb": {
         "lines": [
           1,
           1,
@@ -104,7 +104,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/user.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/user.rb": {
         "lines": [
           1,
           1,
@@ -154,7 +154,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/brewery.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/brewery.rb": {
         "lines": [
           1,
           1,
@@ -187,7 +187,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/style.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/style.rb": {
         "lines": [
           1,
           1,
@@ -201,7 +201,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/controllers/sessions_controller.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/controllers/sessions_controller.rb": {
         "lines": [
           1,
           1,
@@ -235,7 +235,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/controllers/application_controller.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null,
@@ -257,7 +257,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/controllers/users_controller.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -353,7 +353,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/membership.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/membership.rb": {
         "lines": [
           1,
           1,
@@ -361,9 +361,14 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/beer_club.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/beer_club.rb": {
         "lines": [
           1,
+          null,
+          null,
+          1,
+          1,
+          null,
           1,
           1,
           null,
@@ -373,7 +378,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/rating.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/rating.rb": {
         "lines": [
           1,
           1,
@@ -398,7 +403,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/controllers/beers_controller.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/controllers/beers_controller.rb": {
         "lines": [
           1,
           1,
@@ -408,6 +413,18 @@
           null,
           null,
           1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
           1,
           null,
           null,
@@ -483,7 +500,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/controllers/breweries_controller.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/controllers/breweries_controller.rb": {
         "lines": [
           1,
           1,
@@ -492,6 +509,7 @@
           null,
           null,
           1,
+          3,
           3,
           3,
           null,
@@ -580,7 +598,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/lib/weather_api.rb": {
+      "/home/toby/Documents/HY/ratebeer/lib/weather_api.rb": {
         "lines": [
           1,
           1,
@@ -607,7 +625,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/weather.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/weather.rb": {
         "lines": [
           1,
           1,
@@ -616,7 +634,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/lib/beermapping_api.rb": {
+      "/home/toby/Documents/HY/ratebeer/lib/beermapping_api.rb": {
         "lines": [
           1,
           1,
@@ -647,7 +665,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/models/place.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/models/place.rb": {
         "lines": [
           1,
           1,
@@ -656,7 +674,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/controllers/places_controller.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/controllers/places_controller.rb": {
         "lines": [
           1,
           1,
@@ -686,7 +704,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/controllers/ratings_controller.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/controllers/ratings_controller.rb": {
         "lines": [
           1,
           null,
@@ -725,7 +743,7 @@
           null
         ]
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/channels/application_cable/channel.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -735,7 +753,7 @@
         "branches": {
         }
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/channels/application_cable/connection.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
           0,
@@ -745,7 +763,7 @@
         "branches": {
         }
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/controllers/beer_clubs_controller.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/controllers/beer_clubs_controller.rb": {
         "lines": [
           0,
           0,
@@ -755,37 +773,9 @@
           null,
           0,
           0,
-          0,
-          null,
           null,
           0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
           0,
           0,
           0,
@@ -805,36 +795,11 @@
           0,
           0,
           0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
           0,
           0,
           0,
           0,
           null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/controllers/memberships_controller.rb": {
-        "lines": [
-          0,
           0,
           0,
           null,
@@ -851,18 +816,13 @@
           0,
           0,
           0,
-          0,
-          null,
-          null,
-          0,
-          0,
           null,
           null,
           0,
           0,
           0,
           0,
-          null,
+          0,
           0,
           0,
           0,
@@ -890,7 +850,7 @@
           null,
           0,
           0,
-          0,
+          null,
           0,
           0,
           0,
@@ -900,59 +860,6 @@
           0,
           null,
           null,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/controllers/styles_controller.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
           0,
           0,
           0,
@@ -966,7 +873,155 @@
         "branches": {
         }
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/jobs/application_job.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/controllers/memberships_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/toby/Documents/HY/ratebeer/app/controllers/styles_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/toby/Documents/HY/ratebeer/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -979,7 +1034,7 @@
         "branches": {
         }
       },
-      "/home/toby/projects/HY/rubyonrails/ratebeer/app/mailers/application_mailer.rb": {
+      "/home/toby/Documents/HY/ratebeer/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -990,6 +1045,6 @@
         }
       }
     },
-    "timestamp": 1669229909
+    "timestamp": 1670611706
   }
 }

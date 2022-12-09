@@ -29,7 +29,7 @@ class MembershipsController < ApplicationController
 
     respond_to do |format|
       if @membership.save
-        format.html { redirect_to   beer_club_url(@membership), notice: "Welcome to the club #{current_user.username}!" }
+        format.html { redirect_to   beer_club_url(@membership), notice: "Application received for the club #{current_user.username}!" }
         format.json { render :show, status: :created, location: @membership }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -59,6 +59,20 @@ class MembershipsController < ApplicationController
       format.html { redirect_to user_path(current_user), notice: "Membership in #{beer_club.name} successfully ended." }
       format.json { head :no_content }
     end
+  end
+
+  def approve_application
+    application = Membership.find(params[:id])
+    application.update_attribute :confirmed, !application.confirmed
+
+    new_status = application.confirmed? ? "Confirmed" : "Pending"
+
+    respond_to do |format|
+      format.html { redirect_to beer_club_path(application.beer_club), notice: "Application status changed to #{new_status}" }
+      format.json { head :no_content }
+    end
+
+    # redirect_to beer_club_url(application), notice: "Application status changed to #{new_status}"
   end
 
   private
