@@ -6,18 +6,34 @@ class BeerClubsController < ApplicationController
   # GET /beer_clubs or /beer_clubs.json
   def index
     @beer_clubs = BeerClub.all
+
+    order = params[:order] || 'name'
+
+    @beer_clubs = case order
+                  when "name" then @beer_clubs.sort_by(&:name)
+                  when "year" then @beer_clubs.sort_by(&:founded)
+                  when "city" then @beer_clubs.sort_by(&:city)
+                  end
   end
 
   # GET /beer_clubs/1 or /beer_clubs/1.json
   def show
+    if current_user.nil?
+      @current_user_is_member = false
+      return
+    end
     @membership = Membership.find { |m| m.beer_club_id == @beer_club.id && m.user_id == current_user.id }
     if @membership.nil?
       @membership = Membership.new
       @membership.beer_club = @beer_club
       @current_user_is_member = false
+      @application_exists = false
     else
-      @current_user_is_member = true
+      @current_user_is_member = @membership.confirmed
+      @application_exists = !@membership.confirmed
     end
+
+    @applications = @beer_club.applications.joins(:user).select("memberships.id,users.username")
   end
 
   # GET /beer_clubs/new
@@ -31,10 +47,17 @@ class BeerClubsController < ApplicationController
 
   # POST /beer_clubs or /beer_clubs.json
   def create
-    @beer_club = BeerClub.new(beer_club_params)
+    @beer_club  = BeerClub.new(beer_club_params)
+    @membership = Membership.new beer_club: @beer_club, user: current_user
 
+    # Koetetaan tallentaa klubi ja tehdä käyttäjästä jäsen; kummankin on onnistuttava, jottei synny tilannetta, jossa on esim. klubi ilman jäseniä
+    saved_club = nil
+    BeerClub.transaction do
+      saved_club = @beer_club.save
+      @membership.save
+    end
     respond_to do |format|
-      if @beer_club.save
+      if saved_club
         format.html { redirect_to beer_club_url(@beer_club), notice: "Beer club was successfully created." }
         format.json { render :show, status: :created, location: @beer_club }
       else

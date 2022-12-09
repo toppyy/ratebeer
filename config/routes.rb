@@ -26,5 +26,12 @@ Rails.application.routes.draw do
   resources :users  do
     post 'toggle_activity', on: :member
   end
+
+  resources :memberships do
+    post 'approve_application', on: :member
+  end
+
+  get 'beerlist', to: 'beers#list'
+  get 'brewerylist', to: 'breweries#list'
 end
 

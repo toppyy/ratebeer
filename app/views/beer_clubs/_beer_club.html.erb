@@ -13,15 +13,32 @@
     <strong>City:</strong>
     <%= beer_club.city %>
   </p>
-
-  <% if beer_club.users.empty? %>
+ 
+  <% if beer_club.members.empty? %>
       No members in <%= beer_club.name %>.
   <% else %>
     <p>Members:</p>
     <ul>
-      <% beer_club.users.each do |user| %>
+      
+      <% beer_club.members.each do |user| %>
       <li>
         <%= user %>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+   <% if beer_club.applicants.empty? %>
+      No applications for <%= beer_club.name %>.
+  <% else %>
+    <p>Applications:</p>
+    <ul>
+      
+      <% @applications.each do |application| %>
+      <li>
+        <%= application.username %>
+        <%= link_to "Approve application", approve_application_membership_path(application.id), data: {turbo_method: "post"}, class: "btn btn-success"  if @current_user_is_member %>
+ 
       </li>
       <% end %>
     </ul>
