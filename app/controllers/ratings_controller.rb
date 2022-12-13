@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+  before_action :expire_cache, only: [:destroy, :create]
   # GET /ratings or /ratings.json
   def index
     @ratings = Rating.all
@@ -31,5 +32,12 @@ class RatingsController < ApplicationController
     rating = Rating.find params[:id]
     rating.delete if current_user == rating.user
     redirect_to user_path(current_user)
+  end
+
+  private
+
+  def expire_cache
+    # Ekspiroidaan myös brewerylist, koska tämä vaikuttaa myös siihen
+    %w(brewerylist).each{ |f| expire_fragment(f) }
   end
 end

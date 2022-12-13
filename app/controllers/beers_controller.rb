@@ -3,7 +3,7 @@ class BeersController < ApplicationController
   before_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create]
   before_action :ensure_that_signed_in, except: [:index, :show, :list]
   before_action :ensure_is_admin, only: [:destroy]
-  before_action :expire_cache, only: [:destory, :update, :create]
+  before_action :expire_cache, only: [:destroy, :update, :create]
 
   # GET /beers or /beers.json
   def index
@@ -85,7 +85,8 @@ class BeersController < ApplicationController
   private
 
   def expire_cache
-    ["beerlist-name", "beerlist-brewery", "beerlist-style"].each{ |f| expire_fragment(f) }
+    # Ekspiroidaan myös brewerylist, koska tämä vaikuttaa myös siihen
+    %w(beerlist-name beerlist-brewery beerlist-style brewerylist).each{ |f| expire_fragment(f) }
   end
 
   def set_breweries_and_styles_for_template
