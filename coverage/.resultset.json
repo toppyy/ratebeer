@@ -17,7 +17,7 @@
           null,
           null,
           1,
-          15,
+          21,
           null,
           null
         ]
@@ -96,7 +96,7 @@
           1,
           null,
           1,
-          31,
+          37,
           null,
           26,
           26,
@@ -364,8 +364,6 @@
       "/home/toby/Documents/HY/ratebeer/app/models/beer_club.rb": {
         "lines": [
           1,
-          null,
-          null,
           1,
           1,
           null,
@@ -410,9 +408,14 @@
           1,
           1,
           1,
+          1,
           null,
           null,
           1,
+          null,
+          1,
+          1,
+          null,
           1,
           null,
           1,
@@ -446,6 +449,7 @@
           null,
           1,
           2,
+          2,
           null,
           2,
           2,
@@ -464,6 +468,7 @@
           0,
           0,
           0,
+          0,
           null,
           0,
           0,
@@ -474,6 +479,7 @@
           null,
           1,
           0,
+          0,
           null,
           0,
           0,
@@ -482,6 +488,11 @@
           null,
           null,
           1,
+          null,
+          1,
+          null,
+          10,
+          null,
           null,
           1,
           4,
@@ -506,6 +517,7 @@
           1,
           1,
           1,
+          1,
           null,
           null,
           1,
@@ -575,6 +587,10 @@
           null,
           null,
           1,
+          null,
+          1,
+          0,
+          null,
           null,
           null,
           1,
@@ -707,6 +723,7 @@
       "/home/toby/Documents/HY/ratebeer/app/controllers/ratings_controller.rb": {
         "lines": [
           1,
+          1,
           null,
           1,
           1,
@@ -739,6 +756,13 @@
           1,
           1,
           1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          4,
           null,
           null
         ]
@@ -1034,6 +1058,22 @@
         "branches": {
         }
       },
+      "/home/toby/Documents/HY/ratebeer/app/jobs/test_job.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/home/toby/Documents/HY/ratebeer/app/mailers/application_mailer.rb": {
         "lines": [
           0,
@@ -1045,6 +1085,6 @@
         }
       }
     },
-    "timestamp": 1670611706
+    "timestamp": 1671378290
   }
 }

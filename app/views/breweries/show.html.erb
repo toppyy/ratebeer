@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @brewery %>
+<% cache @brewery do %>
+  <%= render @brewery %>
+<% end %>
 
 <div>
   <%= link_to "Back to breweries", breweries_path %>
